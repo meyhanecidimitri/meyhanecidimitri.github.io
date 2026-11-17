@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meyhaneci Dimitri | Resmi Bağlantılar & Yayın Takvimi</title>
+    <meta name="description" content="Kick yayıncısı Meyhaneci Dimitri resmi biolink ve yayın sayfası. Sabah gündemleri (07:02) ve akşam meyhane sohbetleri (21:02).">
+    <link rel="icon" type="image/png" href="avatar.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-base: #070709;
+            --bg-card: rgba(18, 18, 24, 0.75);
+            --bg-card-hover: rgba(28, 28, 38, 0.9);
+            --border-card: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(245, 158, 11, 0.4);
+            --kick-green: #53fc18;
+            --kick-glow: rgba(83, 252, 24, 0.35);
+            --amber: #f59e0b;
+            --amber-glow: rgba(245, 158, 11, 0.3);
+            --punk-red: #ef4444;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px 16px 80px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Ambient Ember / Glow Background */
+        .ambient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.18;
+            animation: pulse-glow 8s ease-in-out infinite alternate;
+        }
+
+        .orb-1 {
+            width: 450px;
+            height: 450px;
+            background: var(--amber);
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .orb-2 {
+            width: 380px;
+            height: 380px;
+            background: var(--punk-red);
+            bottom: 10%;
+            left: -80px;
+            animation-duration: 10s;
+        }
+
+        .orb-3 {
+            width: 320px;
+            height: 320px;
+            background: var(--kick-green);
+            top: 40%;
+            right: -60px;
+            animation-duration: 9s;
+        }
+
+        @keyframes pulse-glow {
+            0% { transform: scale(0.9) translateY(0); opacity: 0.12; }
+            100% { transform: scale(1.15) translateY(25px); opacity: 0.22; }
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 620px;
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        /* Banner & Header Profile */
+        .profile-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            transition: border-color 0.3s;
+        }
+
+        .banner-wrap {
+            width: 100%;
+            height: 150px;
+            position: relative;
+            background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(7,7,9,0.95) 100%), url('banner.jpg') center/cover no-repeat;
+        }
+
+        .profile-body {
+            padding: 0 28px 28px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-top: -65px;
+            position: relative;
+        }
+
+        .avatar-wrap {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin-bottom: 16px;
+        }
+
+        .avatar-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #181822;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+        }
+
+        .avatar-glow {
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            background: conic-gradient(from 180deg at 50% 50%, var(--amber) 0deg, var(--punk-red) 120deg, var(--kick-green) 240deg, var(--amber) 360deg);
+            z-index: -1;
+            filter: blur(8px);
+            opacity: 0.7;
+            animation: spin 10s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .live-badge {
+            position: absolute;
+            bottom: 2px;
+            right: 2px;
+            background: #09090b;
+            border: 1px solid var(--kick-green);
+            color: var(--kick-green);
+            font-size: 11px;
+            font-weight: 800;
+            padding: 3px 9px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px var(--kick-glow);
+        }
+
+        .live-dot {
+            width: 7px;
+            height: 7px;
+            background: var(--kick-green);
+            border-radius: 50%;
+            animation: pulse-dot 1.4s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0% { transform: scale(0.9); opacity: 1; }
+            50% { transform: scale(1.4); opacity: 0.4; }
+            100% { transform: scale(0.9); opacity: 1; }
+        }
+
+        .profile-title {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+
+        .verified-icon {
+            color: var(--kick-green);
+            font-size: 18px;
+        }
+
+        .profile-role {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--amber);
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 12px;
+        }
+
+        .profile-bio {
+            font-size: 14.5px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            max-width: 480px;
+            margin-bottom: 18px;
+        }
+
+        .tags-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .tag-pill {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--text-secondary);
+            font-size: 12px;
+            font-weight: 500;
+            padding: 5px 12px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Schedule Widget */
+        .schedule-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 22px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .schedule-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--amber), var(--punk-red));
+        }
+
+        .schedule-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .schedule-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .schedule-title i {
+            color: var(--amber);
+        }
+
+        .schedule-status-badge {
+            font-size: 11px;
+            font-weight: 700;
+            background: rgba(245, 158, 11, 0.15);
+            color: var(--amber);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        @media (max-width: 480px) {
+            .schedule-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .schedule-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            transition: all 0.25s ease;
+        }
+
+        .schedule-item:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(245, 158, 11, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .schedule-time {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--amber);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .schedule-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .schedule-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Action Links */
+        .links-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .link-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 20px;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .link-card:hover {
+            background: var(--bg-card-hover);
+            transform: translateY(-3px) scale(1.01);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .link-card:active {
+            transform: translateY(-1px) scale(0.99);
+        }
+
+        /* Highlight Kick Hero Card */
+        .link-card.kick-hero {
+            background: linear-gradient(135deg, rgba(18, 38, 20, 0.8) 0%, rgba(18, 18, 24, 0.9) 100%);
+            border: 1px solid rgba(83, 252, 24, 0.4);
+            box-shadow: 0 8px 30px rgba(83, 252, 24, 0.15);
+        }
+
+        .link-card.kick-hero:hover {
+            border-color: var(--kick-green);
+            box-shadow: 0 14px 40px rgba(83, 252, 24, 0.3);
+        }
+
+        .card-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .link-card:hover .card-icon {
+            transform: scale(1.1) rotate(4deg);
+        }
+
+        .icon-kick {
+            background: rgba(83, 252, 24, 0.12);
+            color: var(--kick-green);
+        }
+
+        .icon-youtube {
+            background: rgba(239, 68, 68, 0.12);
+            color: var(--punk-red);
+        }
+
+        .icon-instagram {
+            background: rgba(236, 72, 153, 0.12);
+            color: #ec4899;
+        }
+
+        .icon-twitter {
+            background: rgba(56, 189, 248, 0.12);
+            color: #38bdf8;
+        }
+
+        .icon-mail {
+            background: rgba(245, 158, 11, 0.12);
+            color: var(--amber);
+        }
+
+        .card-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-subtitle {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .card-badge {
+            font-size: 10px;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-kick {
+            background: var(--kick-green);
+            color: #000;
+        }
+
+        .badge-red {
+            background: var(--punk-red);
+            color: #fff;
+        }
+
+        .card-arrow {
+            color: var(--text-muted);
+            font-size: 14px;
+            transition: transform 0.2s, color 0.2s;
+        }
+
+        .link-card:hover .card-arrow {
+            transform: translateX(4px);
+            color: var(--text-primary);
+        }
+
+        /* Vinyl Tavern Quote / Jukebox */
+        .tavern-quote-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            backdrop-filter: blur(16px);
+            border-radius: 20px;
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .vinyl-record {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #2d2d38 18%, #15151c 19%, #15151c 38%, #2d2d38 39%, #2d2d38 58%, #15151c 59%, #15151c 78%, #2d2d38 79%);
+            border: 2px solid #383848;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            animation: spin 6s linear infinite;
+        }
+
+        .vinyl-center {
+            width: 18px;
+            height: 18px;
+            background: var(--amber);
+            border-radius: 50%;
+            border: 2px solid #111;
+        }
+
+        .quote-content {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .quote-text {
+            font-size: 13.5px;
+            font-style: italic;
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+
+        .quote-author {
+            font-size: 11.5px;
+            font-weight: 700;
+            color: var(--amber);
+            letter-spacing: 0.5px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 10px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-text {
+            font-size: 12.5px;
+            color: var(--text-muted);
+        }
+
+        .footer-brand {
+            font-weight: 700;
+            color: var(--text-secondary);
+        }
+
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #181822;
+            border: 1px solid var(--amber);
+            color: var(--text-primary);
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 13.5px;
+            font-weight: 600;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px var(--amber-glow);
+            z-index: 1000;
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            pointer-events: none;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ambient Glow Orbs -->
+    <div class="ambient-bg">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+
+    <div class="container">
+
+        <!-- Profile Section -->
+        <div class="profile-card">
+            <div class="banner-wrap"></div>
+            <div class="profile-body">
+                <div class="avatar-wrap">
+                    <div class="avatar-glow"></div>
+                    <img src="avatar.png" alt="Meyhaneci Dimitri" class="avatar-img">
+                    <div class="live-badge" id="kickBadge">
+                        <span class="live-dot"></span>
+                        <span id="kickStatusText">KICK CANLI</span>
+                    </div>
+                </div>
+
+                <h1 class="profile-title">
+                    Meyhaneci Dimitri
+                    <i class="fa-solid fa-circle-check verified-icon" title="Doğrulanmış Yayıncı"></i>
+                </h1>
+
+
+
+                <p class="profile-bio">
+                    99’dan beri sahnelerde, davulun başında ve mikrofonda. Pazar hariç her sabah günün ilk ışıklarında gündem, haftanın üç gecesi meyhane muhabbeti ve müzik.
+                </p>
+
+                <div class="tags-row">
+                    <span class="tag-pill"><i class="fa-solid fa-drum"></i> Punk Rock</span>
+                    <span class="tag-pill"><i class="fa-solid fa-mug-hot"></i> Sabah Gündemi</span>
+                    <span class="tag-pill"><i class="fa-solid fa-wine-glass"></i> Meyhane Sohbeti</span>
+                    <span class="tag-pill"><i class="fa-solid fa-podcast"></i> Podcast</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Schedule Card -->
+        <div class="schedule-card">
+            <div class="schedule-header">
+                <div class="schedule-title">
+                    <i class="fa-regular fa-calendar-days"></i>
+                    Yayın Masası Takvimi
+                </div>
+                <div class="schedule-status-badge">
+                    <i class="fa-solid fa-clock"></i> Saatler Sabit
+                </div>
+            </div>
+
+            <div class="schedule-grid">
+                <div class="schedule-item">
+                    <div class="schedule-time">
+                        <i class="fa-solid fa-sun"></i> 07:02
+                    </div>
+                    <div class="schedule-name">Sabah Gündemi</div>
+                    <div class="schedule-desc">Pazar hariç her sabah 07:02'de taze kahve eşliğinde memleket gündemi.</div>
+                </div>
+
+                <div class="schedule-item">
+                    <div class="schedule-time">
+                        <i class="fa-solid fa-moon"></i> 21:02
+                    </div>
+                    <div class="schedule-name">Akşam Meyhanesi & Müzik</div>
+                    <div class="schedule-desc">Pazartesi, Çarşamba, Cuma geceleri derin sohbet, dertleşme ve şarkılar.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Links -->
+        <div class="links-wrapper">
+
+            <!-- Kick Stream Hero -->
+            <a href="https://kick.com/meyhanecidimitri" target="_blank" rel="noopener noreferrer" class="link-card kick-hero">
+                <div class="card-left">
+                    <div class="card-icon icon-kick">
+                        <i class="fa-solid fa-play"></i>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-title">
+                            Kick Canlı Yayın Masası
+                            <span class="card-badge badge-kick">CANLI</span>
+                        </div>
+                        <div class="card-subtitle">kick.com/meyhanecidimitri • Sohbete ve masaya katıl</div>
+                    </div>
+                </div>
+                <i class="fa-solid fa-chevron-right card-arrow"></i>
+            </a>
+
+            <!-- YouTube -->
+            <a href="https://www.youtube.com/@MeyhaneciDimitri" target="_blank" rel="noopener noreferrer" class="link-card">
+                <div class="card-left">
+                    <div class="card-icon icon-youtube">
+                        <i class="fa-brands fa-youtube"></i>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-title">
+                            YouTube Arşivi & Kesitler
+                            <span class="card-badge badge-red">ARŞİV</span>
+                        </div>
+                        <div class="card-subtitle">@MeyhaneciDimitri • Yayın tekrarları ve öne çıkan videolar</div>
+                    </div>
+                </div>
+                <i class="fa-solid fa-chevron-right card-arrow"></i>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/meyhanecidimitri/" target="_blank" rel="noopener noreferrer" class="link-card">
+                <div class="card-left">
+                    <div class="card-icon icon-instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-title">Instagram</div>
+                        <div class="card-subtitle">@meyhanecidimitri • Günlük kareler, kulis ve duyurular</div>
+                    </div>
+                </div>
+                <i class="fa-solid fa-chevron-right card-arrow"></i>
+            </a>
+
+            <!-- Twitter / X -->
+            <a href="https://twitter.com/MeyhaneDimitri" target="_blank" rel="noopener noreferrer" class="link-card">
+                <div class="card-left">
+                    <div class="card-icon icon-twitter">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-title">Twitter (X)</div>
+                        <div class="card-subtitle">@MeyhaneDimitri • Anlık düşünceler ve yayın bildirimleri</div>
+                    </div>
+                </div>
+                <i class="fa-solid fa-chevron-right card-arrow"></i>
+            </a>
+
+            <!-- Contact / Email Copy -->
+            <div class="link-card" id="emailCard" style="cursor: pointer;">
+                <div class="card-left">
+                    <div class="card-icon icon-mail">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-title">İletişim & Sponsorluk</div>
+                        <div class="card-subtitle">meyhanecidimitri@gmail.com • Tıkla kopyala</div>
+                    </div>
+                </div>
+                <i class="fa-regular fa-copy card-arrow" id="copyIcon"></i>
+            </div>
+
+        </div>
+
+        <!-- Tavern Quote / Mood Card -->
+        <div class="tavern-quote-card">
+            <div class="vinyl-record">
+                <div class="vinyl-center"></div>
+            </div>
+            <div class="quote-content">
+                <div class="quote-text">
+                    "Bu masada herkes eşit oturur, dertler ortak paylaşılır, kadehler dostluğa kalkar."
+                </div>
+                <div class="quote-author">— Dimitri'nin Meyhanesi</div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-text">
+                © 2026 <span class="footer-brand">Meyhaneci Dimitri</span> • Tüm Hakları Saklıdır
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fa-solid fa-circle-check" style="color: var(--amber);"></i>
+        <span>E-posta adresi panoya kopyalandı!</span>
+    </div>
+
+    <script>
+        // E-posta Kopyalama & Toast Bildirimi
+        const emailCard = document.getElementById('emailCard');
+        const toast = document.getElementById('toast');
+        const copyIcon = document.getElementById('copyIcon');
+        const email = 'meyhanecidimitri@gmail.com';
+
+        emailCard.addEventListener('click', () => {
+            navigator.clipboard.writeText(email).then(() => {
+                toast.classList.add('show');
+                copyIcon.className = 'fa-solid fa-check card-arrow';
+                copyIcon.style.color = 'var(--amber)';
+
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                    copyIcon.className = 'fa-regular fa-copy card-arrow';
+                    copyIcon.style.color = '';
+                }, 2800);
+            }).catch(err => {
+                console.error('Kopyalama hatası:', err);
+            });
+        });
+
+        // Canlı Kick Durumu Kontrolü (Client-side)
+        async function checkKickLive() {
+            try {
+                // Kick API kontrolü
+                const res = await fetch('https://kick.com/api/v2/channels/meyhanecidimitri');
+                if (res.ok) {
+                    const data = await res.json();
+                    const isLive = data.livestream && data.livestream.is_live;
+                    const badge = document.getElementById('kickBadge');
+                    const text = document.getElementById('kickStatusText');
+
+                    if (isLive) {
+                        text.innerText = 'CANLI YAYINDA';
+                        badge.style.borderColor = 'var(--kick-green)';
+                    } else {
+                        text.innerText = 'YAYINDA DEĞİL';
+                        badge.querySelector('.live-dot').style.background = '#94a3b8';
+                        badge.style.borderColor = '#334155';
+                        badge.style.color = '#94a3b8';
+                        badge.style.boxShadow = 'none';
+                    }
+                }
+            } catch (e) {
+                // Fallback: varsayılan olarak canlı masayı gösterir
+                console.log('Kick status fallback');
+            }
+        }
+        checkKickLive();
+    </script>
+</body>
+</html>
