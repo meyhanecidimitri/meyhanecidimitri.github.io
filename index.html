@@ -444,9 +444,19 @@
             color: var(--kick-green);
         }
 
+        .icon-spotify {
+            background: rgba(29, 185, 84, 0.12);
+            color: #1db954;
+        }
+
         .icon-youtube {
             background: rgba(239, 68, 68, 0.12);
             color: var(--punk-red);
+        }
+
+        .icon-tiktok {
+            background: rgba(255, 0, 80, 0.12);
+            color: #ff0050;
         }
 
         .icon-instagram {
@@ -498,8 +508,18 @@
             color: #000;
         }
 
+        .badge-spotify {
+            background: #1db954;
+            color: #000;
+        }
+
         .badge-red {
             background: var(--punk-red);
+            color: #fff;
+        }
+
+        .badge-tiktok {
+            background: #ff0050;
             color: #fff;
         }
 
@@ -657,7 +677,8 @@
                     <span class="tag-pill"><i class="fa-solid fa-drum"></i> Punk Rock</span>
                     <span class="tag-pill"><i class="fa-solid fa-mug-hot"></i> Sabah Gündemi</span>
                     <span class="tag-pill"><i class="fa-solid fa-wine-glass"></i> Meyhane Sohbeti</span>
-                    <span class="tag-pill"><i class="fa-solid fa-podcast"></i> Podcast</span>
+                    <span class="tag-pill"><i class="fa-brands fa-spotify"></i> Spotify</span>
+                    <span class="tag-pill"><i class="fa-brands fa-tiktok"></i> TikTok</span>
                 </div>
             </div>
         </div>
@@ -713,8 +734,25 @@
                 <i class="fa-solid fa-chevron-right card-arrow"></i>
             </a>
 
+            <!-- Spotify -->
+            <a href="https://spoti.fi/3h6RCAb" target="_blank" rel="noopener noreferrer" class="link-card">
+                <div class="card-left">
+                    <div class="card-icon icon-spotify">
+                        <i class="fa-brands fa-spotify"></i>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-title">
+                            Spotify Çalma Listeleri & Şarkılar
+                            <span class="card-badge badge-spotify">MÜZİK</span>
+                        </div>
+                        <div class="card-subtitle">spoti.fi/3h6RCAb • Dimitri'nin meyhane ve rock şarkı seçkileri</div>
+                    </div>
+                </div>
+                <i class="fa-solid fa-chevron-right card-arrow"></i>
+            </a>
+
             <!-- YouTube -->
-            <a href="https://www.youtube.com/@MeyhaneciDimitri" target="_blank" rel="noopener noreferrer" class="link-card">
+            <a href="https://www.youtube.com/c/MeyhaneciDimitri" target="_blank" rel="noopener noreferrer" class="link-card">
                 <div class="card-left">
                     <div class="card-icon icon-youtube">
                         <i class="fa-brands fa-youtube"></i>
@@ -724,14 +762,31 @@
                             YouTube Arşivi & Kesitler
                             <span class="card-badge badge-red">ARŞİV</span>
                         </div>
-                        <div class="card-subtitle">@MeyhaneciDimitri • Yayın tekrarları ve öne çıkan videolar</div>
+                        <div class="card-subtitle">youtube.com/c/MeyhaneciDimitri • Yayın tekrarları ve öne çıkan videolar</div>
+                    </div>
+                </div>
+                <i class="fa-solid fa-chevron-right card-arrow"></i>
+            </a>
+
+            <!-- TikTok -->
+            <a href="https://www.tiktok.com/@meyhanecidimitri" target="_blank" rel="noopener noreferrer" class="link-card">
+                <div class="card-left">
+                    <div class="card-icon icon-tiktok">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-title">
+                            TikTok
+                            <span class="card-badge badge-tiktok">KLİPLER</span>
+                        </div>
+                        <div class="card-subtitle">@meyhanecidimitri • Eğlenceli kesitler ve kısa videolar</div>
                     </div>
                 </div>
                 <i class="fa-solid fa-chevron-right card-arrow"></i>
             </a>
 
             <!-- Instagram -->
-            <a href="https://www.instagram.com/meyhanecidimitri/" target="_blank" rel="noopener noreferrer" class="link-card">
+            <a href="https://www.instagram.com/meyhanecidimitri" target="_blank" rel="noopener noreferrer" class="link-card">
                 <div class="card-left">
                     <div class="card-icon icon-instagram">
                         <i class="fa-brands fa-instagram"></i>
@@ -774,8 +829,8 @@
 
         </div>
 
-        <!-- Tavern Quote / Mood Card -->
-        <div class="tavern-quote-card">
+        <!-- Tavern Quote / Mood Card (Clickable Spotify Play) -->
+        <a href="https://spoti.fi/3h6RCAb" target="_blank" rel="noopener noreferrer" class="tavern-quote-card" style="text-decoration: none; cursor: pointer;" title="Dimitri'nin Spotify Çalma Listesini Dinle">
             <div class="vinyl-record">
                 <div class="vinyl-center"></div>
             </div>
@@ -783,9 +838,13 @@
                 <div class="quote-text">
                     "Bu masada herkes eşit oturur, dertler ortak paylaşılır, kadehler dostluğa kalkar."
                 </div>
-                <div class="quote-author">— Dimitri'nin Meyhanesi</div>
+                <div class="quote-author">
+                    <i class="fa-brands fa-spotify" style="color: #1db954; margin-right: 4px;"></i>
+                    Dimitri'nin Meyhanesi • Spotify'da Dinle
+                </div>
             </div>
-        </div>
+            <i class="fa-solid fa-arrow-up-right-from-square card-arrow" style="margin-left: auto; font-size: 13px;"></i>
+        </a>
 
         <!-- Footer -->
         <div class="footer">
