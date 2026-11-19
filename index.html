@@ -508,6 +508,11 @@
             color: #000;
         }
 
+        .badge-amber {
+            background: var(--amber);
+            color: #000;
+        }
+
         .badge-spotify {
             background: #1db954;
             color: #000;
@@ -520,6 +525,16 @@
 
         .badge-tiktok {
             background: #ff0050;
+            color: #fff;
+        }
+
+        .badge-instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: #fff;
+        }
+
+        .badge-twitter {
+            background: #1d9bf0;
             color: #fff;
         }
 
@@ -717,8 +732,8 @@
         <!-- Action Links -->
         <div class="links-wrapper">
 
-            <!-- Kick Stream Hero -->
-            <a href="https://kick.com/meyhanecidimitri" target="_blank" rel="noopener noreferrer" class="link-card kick-hero">
+            <!-- 1. Kick Stream Hero -->
+            <a href="https://kick.com/meyhanecidimitri" target="_blank" rel="noopener noreferrer" class="link-card kick-hero" id="kickHeroCard">
                 <div class="card-left">
                     <div class="card-icon icon-kick">
                         <i class="fa-solid fa-play"></i>
@@ -726,32 +741,15 @@
                     <div class="card-info">
                         <div class="card-title">
                             Kick Canlı Yayın Masası
-                            <span class="card-badge badge-kick">CANLI</span>
+                            <span class="card-badge badge-kick" id="kickHeroBadge">MASANI AYIRT</span>
                         </div>
-                        <div class="card-subtitle">kick.com/meyhanecidimitri • Sohbete ve masaya katıl</div>
+                        <div class="card-subtitle" id="kickHeroSubtitle">kick.com/meyhanecidimitri • Sohbete ve masaya katıl</div>
                     </div>
                 </div>
                 <i class="fa-solid fa-chevron-right card-arrow"></i>
             </a>
 
-            <!-- Spotify -->
-            <a href="https://spoti.fi/3h6RCAb" target="_blank" rel="noopener noreferrer" class="link-card">
-                <div class="card-left">
-                    <div class="card-icon icon-spotify">
-                        <i class="fa-brands fa-spotify"></i>
-                    </div>
-                    <div class="card-info">
-                        <div class="card-title">
-                            Spotify Çalma Listeleri & Şarkılar
-                            <span class="card-badge badge-spotify">MÜZİK</span>
-                        </div>
-                        <div class="card-subtitle">spoti.fi/3h6RCAb • Dimitri'nin meyhane ve rock şarkı seçkileri</div>
-                    </div>
-                </div>
-                <i class="fa-solid fa-chevron-right card-arrow"></i>
-            </a>
-
-            <!-- YouTube -->
+            <!-- 2. YouTube -->
             <a href="https://www.youtube.com/c/MeyhaneciDimitri" target="_blank" rel="noopener noreferrer" class="link-card">
                 <div class="card-left">
                     <div class="card-icon icon-youtube">
@@ -768,7 +766,7 @@
                 <i class="fa-solid fa-chevron-right card-arrow"></i>
             </a>
 
-            <!-- TikTok -->
+            <!-- 3. TikTok -->
             <a href="https://www.tiktok.com/@meyhanecidimitri" target="_blank" rel="noopener noreferrer" class="link-card">
                 <div class="card-left">
                     <div class="card-icon icon-tiktok">
@@ -785,42 +783,68 @@
                 <i class="fa-solid fa-chevron-right card-arrow"></i>
             </a>
 
-            <!-- Instagram -->
+            <!-- 4. Instagram -->
             <a href="https://www.instagram.com/meyhanecidimitri" target="_blank" rel="noopener noreferrer" class="link-card">
                 <div class="card-left">
                     <div class="card-icon icon-instagram">
                         <i class="fa-brands fa-instagram"></i>
                     </div>
                     <div class="card-info">
-                        <div class="card-title">Instagram</div>
+                        <div class="card-title">
+                            Instagram
+                            <span class="card-badge badge-instagram">HİKAYELER & KULİS</span>
+                        </div>
                         <div class="card-subtitle">@meyhanecidimitri • Günlük kareler, kulis ve duyurular</div>
                     </div>
                 </div>
                 <i class="fa-solid fa-chevron-right card-arrow"></i>
             </a>
 
-            <!-- Twitter / X -->
+            <!-- 5. Twitter / X -->
             <a href="https://twitter.com/MeyhaneDimitri" target="_blank" rel="noopener noreferrer" class="link-card">
                 <div class="card-left">
                     <div class="card-icon icon-twitter">
                         <i class="fa-brands fa-x-twitter"></i>
                     </div>
                     <div class="card-info">
-                        <div class="card-title">Twitter (X)</div>
+                        <div class="card-title">
+                            Twitter (X)
+                            <span class="card-badge badge-twitter">GÜNDEM & ANLIK</span>
+                        </div>
                         <div class="card-subtitle">@MeyhaneDimitri • Anlık düşünceler ve yayın bildirimleri</div>
                     </div>
                 </div>
                 <i class="fa-solid fa-chevron-right card-arrow"></i>
             </a>
 
-            <!-- Contact / Email Copy -->
+            <!-- 6. Spotify (Twitter'ın altında, İletişim'in üstünde) -->
+            <a href="https://spoti.fi/3h6RCAb" target="_blank" rel="noopener noreferrer" class="link-card">
+                <div class="card-left">
+                    <div class="card-icon icon-spotify">
+                        <i class="fa-brands fa-spotify"></i>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-title">
+                            Spotify Çalma Listeleri & Şarkılar
+                            <span class="card-badge badge-spotify">MÜZİK & LİSTE</span>
+                        </div>
+                        <div class="card-subtitle">spoti.fi/3h6RCAb • Dimitri'nin meyhane ve rock şarkı seçkileri</div>
+                    </div>
+                </div>
+                <i class="fa-solid fa-chevron-right card-arrow"></i>
+            </a>
+
+            <!-- 7. Contact / Email Copy -->
             <div class="link-card" id="emailCard" style="cursor: pointer;">
                 <div class="card-left">
                     <div class="card-icon icon-mail">
                         <i class="fa-solid fa-envelope"></i>
                     </div>
                     <div class="card-info">
-                        <div class="card-title">İletişim & Sponsorluk</div>
+                        <div class="card-title">
+                            İletişim & Sponsorluk
+                            <span class="card-badge badge-amber">İŞ BİRLİĞİ</span>
+                        </div>
                         <div class="card-subtitle">meyhanecidimitri@gmail.com • Tıkla kopyala</div>
                     </div>
                 </div>
@@ -884,34 +908,86 @@
             });
         });
 
-        // Canlı Kick Durumu Kontrolü (Client-side)
-        async function checkKickLive() {
-            try {
-                // Kick API kontrolü
-                const res = await fetch('https://kick.com/api/v2/channels/meyhanecidimitri');
-                if (res.ok) {
-                    const data = await res.json();
-                    const isLive = data.livestream && data.livestream.is_live;
-                    const badge = document.getElementById('kickBadge');
-                    const text = document.getElementById('kickStatusText');
+        // Canlı Kick Durumu & Akıllı Yayın Takibi
+        function updateKickStatus(isLive, customText = null) {
+            const avatarBadge = document.getElementById('kickBadge');
+            const avatarText = document.getElementById('kickStatusText');
+            const heroBadge = document.getElementById('kickHeroBadge');
+            const heroSub = document.getElementById('kickHeroSubtitle');
+            const heroCard = document.getElementById('kickHeroCard');
+            const dot = avatarBadge ? avatarBadge.querySelector('.live-dot') : null;
 
-                    if (isLive) {
-                        text.innerText = 'CANLI YAYINDA';
-                        badge.style.borderColor = 'var(--kick-green)';
-                    } else {
-                        text.innerText = 'YAYINDA DEĞİL';
-                        badge.querySelector('.live-dot').style.background = '#94a3b8';
-                        badge.style.borderColor = '#334155';
-                        badge.style.color = '#94a3b8';
-                        badge.style.boxShadow = 'none';
-                    }
+            if (isLive) {
+                if (avatarText) avatarText.innerText = 'CANLI YAYINDA';
+                if (dot) {
+                    dot.style.background = 'var(--kick-green)';
+                    dot.style.display = 'inline-block';
                 }
-            } catch (e) {
-                // Fallback: varsayılan olarak canlı masayı gösterir
-                console.log('Kick status fallback');
+                if (avatarBadge) {
+                    avatarBadge.style.borderColor = 'var(--kick-green)';
+                    avatarBadge.style.color = 'var(--kick-green)';
+                    avatarBadge.style.boxShadow = '0 4px 12px var(--kick-glow)';
+                }
+                if (heroBadge) {
+                    heroBadge.className = 'card-badge badge-kick';
+                    heroBadge.innerText = 'CANLI';
+                }
+                if (heroSub) heroSub.innerText = 'kick.com/meyhanecidimitri • Şu an yayında, masaya katıl!';
+                if (heroCard) heroCard.style.borderColor = 'var(--kick-green)';
+            } else {
+                if (avatarText) avatarText.innerText = customText || 'MASA HAZIR';
+                if (dot) dot.style.display = 'none';
+                if (avatarBadge) {
+                    avatarBadge.style.borderColor = 'rgba(245, 158, 11, 0.4)';
+                    avatarBadge.style.color = 'var(--amber)';
+                    avatarBadge.style.boxShadow = 'none';
+                }
+                if (heroBadge) {
+                    heroBadge.className = 'card-badge badge-amber';
+                    heroBadge.innerText = 'MASANI AYIRT';
+                }
+                if (heroSub) heroSub.innerText = 'kick.com/meyhanecidimitri • Yayın başlayınca masanda yerini al';
+                if (heroCard) heroCard.style.borderColor = 'rgba(255, 255, 255, 0.12)';
             }
         }
+
+        // Akıllı Yayın Saati & Canlılık Algılayıcı (Türkiye Saati UTC+3)
+        function checkKickLive() {
+            try {
+                const now = new Date();
+                const utcTime = now.getTime() + (now.getTimezoneOffset() * 60000);
+                const trTime = new Date(utcTime + (3600000 * 3)); // UTC+3 Türkiye
+                
+                const day = trTime.getDay(); // 0: Pazar, 1: Pzt, 2: Salı, 3: Çar, 4: Per, 5: Cuma, 6: Cmt
+                const hours = trTime.getHours();
+                const minutes = trTime.getMinutes();
+                const totalMins = hours * 60 + minutes;
+
+                // 1. Sabah Gündemi: Pazar hariç her gün 07:00 - 09:30 arası
+                const isMorningStream = (day !== 0) && (totalMins >= (7 * 60) && totalMins <= (9 * 60 + 30));
+
+                // 2. Akşam Meyhanesi: Pzt(1), Çar(3), Cuma(5) 21:00 - 01:00 arası
+                const isNightStream = (day === 1 || day === 3 || day === 5) && (totalMins >= (21 * 60) || totalMins <= (1 * 60));
+
+                const isScheduledLive = isMorningStream || isNightStream;
+
+                updateKickStatus(isScheduledLive);
+
+                // Ek olarak API kontrolü
+                fetch('https://kick.com/api/v2/channels/meyhanecidimitri')
+                    .then(r => r.ok ? r.json() : Promise.reject())
+                    .then(data => {
+                        const isApiLive = !!(data && data.livestream && data.livestream.is_live);
+                        updateKickStatus(isApiLive);
+                    })
+                    .catch(() => {});
+            } catch(err) {
+                updateKickStatus(false);
+            }
+        }
+
         checkKickLive();
+        setInterval(checkKickLive, 60000);
     </script>
 </body>
 </html>
